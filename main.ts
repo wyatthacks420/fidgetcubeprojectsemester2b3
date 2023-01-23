@@ -8,20 +8,14 @@ input.onButtonPressed(Button.A, function () {
         basic.showString("t")
     }
 })
+input.onGesture(Gesture.ScreenDown, function () {
+    questionMark = 0
+})
 input.onButtonPressed(Button.AB, function () {
     questionMark = 1
 })
 input.onButtonPressed(Button.B, function () {
-    for (let index = 0; index < 4; index++) {
-        music.playMelody("A B C5 A G F E D ", 1000)
-    }
     basic.showString("im bored")
-})
-input.onGesture(Gesture.Shake, function () {
-	
-})
-input.onLogoEvent(TouchButtonEvent.Touched, function () {
-	
 })
 let h_or_t_heads_or_tails = 0
 let questionMark = 0
@@ -39,8 +33,18 @@ basic.forever(function () {
         `,10)
 basic.pause(100)
         basic.clearScreen()
-        for (let index = 0; index < 10; index++) {
-            music.playMelody("A B C5 A G F E D ", 1250)
-        }
     }
+})
+basic.forever(function () {
+    while (input.logoIsPressed()) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `,0)
+music.playMelody("G A B C5 B A B C5 ", 12050)
+    }
+    basic.clearScreen()
 })
