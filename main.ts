@@ -17,6 +17,9 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     basic.showString("im bored")
 })
+input.onGesture(Gesture.Shake, function () {
+    music.playMelody("C D C - C5 B C5 A ", 120)
+})
 let h_or_t_heads_or_tails = 0
 let questionMark = 0
 music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)
